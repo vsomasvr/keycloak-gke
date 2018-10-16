@@ -22,6 +22,8 @@ spec:
     spec:
       containers:
       - env:
+        - name: PROXY_ADDRESS_FORWARDING
+          value: "true"
         - name: KEYCLOAK_USER
           value: kcadmin
         - name: KEYCLOAK_PASSWORD
