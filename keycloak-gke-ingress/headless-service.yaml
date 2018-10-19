@@ -1,0 +1,21 @@
+# Source: keycloak/templates/headless-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-headless
+  labels:
+    app: keycloak
+    chart: keycloak-3.4.0
+    release: "keycloak"
+    heritage: "Tiller"
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP
+  selector:
+    app: keycloak
+    release: "keycloak"
